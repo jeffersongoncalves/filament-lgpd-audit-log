@@ -1,3 +1,5 @@
 <?php
 
-uses(JeffersonGoncalves\Filament\LgpdAuditLog\Tests\TestCase::class)->in('Feature');
+use JeffersonGoncalves\Filament\LgpdAuditLog\Tests\TestCase;
+
+uses(TestCase::class)->in('Feature');
