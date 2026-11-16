@@ -2,17 +2,17 @@
 
 namespace JeffersonGoncalves\Filament\LgpdAuditLog;
 
+use JeffersonGoncalves\FilamentPluginCore\BasePackageServiceProvider;
 use Spatie\LaravelPackageTools\Package;
-use Spatie\LaravelPackageTools\PackageServiceProvider;
 
-class LgpdAuditLogServiceProvider extends PackageServiceProvider
+class LgpdAuditLogServiceProvider extends BasePackageServiceProvider
 {
+    public static string $name = 'filament-lgpd-audit-log';
+
     public function configurePackage(Package $package): void
     {
         $package
-            ->name('filament-lgpd-audit-log')
-            ->hasConfigFile()
-            ->hasViews()
-            ->hasMigrations();
+            ->name(static::$name)
+            ->hasTranslations();
     }
 }
