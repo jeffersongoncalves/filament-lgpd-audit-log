@@ -26,6 +26,7 @@ return [
         'deleted' => 'Verwijderd',
         'exported' => 'Geëxporteerd',
         'anonymized' => 'Geanonimiseerd',
+        'verified' => 'Keten gecontroleerd',
     ],
 
     'system' => 'Systeem',

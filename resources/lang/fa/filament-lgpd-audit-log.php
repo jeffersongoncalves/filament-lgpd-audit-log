@@ -26,6 +26,7 @@ return [
         'deleted' => 'حذف کرد',
         'exported' => 'صادر کرد',
         'anonymized' => 'ناشناس کرد',
+        'verified' => 'زنجیره را بررسی کرد',
     ],
 
     'system' => 'سیستم',

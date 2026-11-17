@@ -19,7 +19,7 @@ Browse the audit trail of [laravel-lgpd-audit-log](https://github.com/jeffersong
 - Every entry: when, who, action, data subject, columns (names only, never values) and purpose.
 - Filters by action and by data subject model.
 - View page with the IP address, user agent, metadata and the entry's hash.
-- Who opens an entry in the panel is logged too.
+- Who opens the list or an entry, and who verifies the chain, is logged too.
 - **Verify chain:** checks the hash chain and tells you which entry was altered, removed or inserted.
 - Read-only, like the log itself.
 - 19 languages. Custom actions you record are shown as they are.
@@ -56,12 +56,12 @@ public function panel(Panel $panel): Panel
                 ->navigationSort(50)
                 ->navigationIcon('heroicon-o-document-magnifying-glass')
                 ->slug('audit-log')
-                ->logViews(),                         // log who opens an entry (default: on)
+                ->logViews(),                         // log who reads the log (default: on)
         ]);
 }
 ```
 
-All fluent methods are optional. Opening an entry shows the IP address, user agent and metadata, so each opening is logged too: a `viewed` entry whose subject is the entry opened, with the purpose `Audit log review`. Turn it off with `->logViews(false)`.
+All fluent methods are optional. Reading the log is logged too, with the purpose `Audit log review`: opening the list or an entry adds a `viewed` entry (its subject is the entry opened), and checking the chain adds a `verified` entry with the result. Turn it off with `->logViews(false)`.
 
 > The resource has no authorization of its own: register it only on panels whose users may read the audit log, or add a policy for `JeffersonGoncalves\LgpdAuditLog\Models\AuditLog`.
 
