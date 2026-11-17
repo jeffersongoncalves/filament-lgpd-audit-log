@@ -59,6 +59,22 @@ it('logs who opens an entry, unless disabled', function () {
     expect(AuditLog::count())->toBe(2);
 });
 
+it('logs who opens the list and who verifies the chain', function () {
+    Livewire::test(ListAuditLogs::class)->callAction('verify');
+
+    expect(AuditLog::query()->orderBy('id')->get()->map(fn (AuditLog $log): array => [$log->action, $log->purpose, $log->metadata])->all())
+        ->toBe([
+            ['viewed', 'Audit log review', null],
+            ['verified', 'Audit log review', ['intact' => true, 'broken_at' => null]],
+        ])
+        ->and(AuditLog::query()->latest('id')->first()->actor->is($this->admin))->toBeTrue();
+
+    LgpdAuditLogPlugin::get()->logViews(false);
+    Livewire::test(ListAuditLogs::class)->callAction('verify');
+
+    expect(AuditLog::count())->toBe(2);
+});
+
 it('verifies the chain from the panel', function () {
     foreach (range(1, 3) as $i) {
         LgpdAuditLog::record('viewed', $this->subject);

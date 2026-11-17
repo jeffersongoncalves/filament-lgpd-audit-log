@@ -26,6 +26,7 @@ return [
         'deleted' => 'Sildi',
         'exported' => 'İxrac etdi',
         'anonymized' => 'Anonimləşdirdi',
+        'verified' => 'Zənciri yoxladı',
     ],
 
     'system' => 'Sistem',

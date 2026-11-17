@@ -26,6 +26,7 @@ return [
         'deleted' => '删除',
         'exported' => '导出',
         'anonymized' => '匿名化',
+        'verified' => '验证了链',
     ],
 
     'system' => '系统',
