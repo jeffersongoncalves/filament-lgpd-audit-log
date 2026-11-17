@@ -26,6 +26,7 @@ return [
         'deleted' => 'Deleted',
         'exported' => 'Exported',
         'anonymized' => 'Anonymized',
+        'verified' => 'Verified chain',
     ],
 
     'system' => 'System',

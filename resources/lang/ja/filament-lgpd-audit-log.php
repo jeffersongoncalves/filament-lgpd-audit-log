@@ -26,6 +26,7 @@ return [
         'deleted' => '削除',
         'exported' => 'エクスポート',
         'anonymized' => '匿名化',
+        'verified' => 'チェーンを検証',
     ],
 
     'system' => 'システム',

@@ -19,7 +19,7 @@ class LgpdAuditLogPlugin extends BasePlugin
     protected bool $logViews = true;
 
     /**
-     * Log a "viewed" entry each time someone opens an audit entry in the panel (who reads the log is audited too).
+     * Log who reads the log: a "viewed" entry when someone opens the list or an entry, a "verified" one when the chain is checked.
      */
     public function logViews(bool $condition = true): static
     {

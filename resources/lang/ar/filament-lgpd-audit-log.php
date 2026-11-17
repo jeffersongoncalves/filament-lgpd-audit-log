@@ -26,6 +26,7 @@ return [
         'deleted' => 'حذف',
         'exported' => 'صدّر',
         'anonymized' => 'جهّل',
+        'verified' => 'تحقق من السلسلة',
     ],
 
     'system' => 'النظام',
