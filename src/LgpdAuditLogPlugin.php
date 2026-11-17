@@ -16,6 +16,23 @@ class LgpdAuditLogPlugin extends BasePlugin
 
     protected string $slug = 'audit-log';
 
+    protected bool $logViews = true;
+
+    /**
+     * Log a "viewed" entry each time someone opens an audit entry in the panel (who reads the log is audited too).
+     */
+    public function logViews(bool $condition = true): static
+    {
+        $this->logViews = $condition;
+
+        return $this;
+    }
+
+    public function shouldLogViews(): bool
+    {
+        return $this->logViews;
+    }
+
     public function getId(): string
     {
         return 'filament-lgpd-audit-log';

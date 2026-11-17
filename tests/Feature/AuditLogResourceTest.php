@@ -40,6 +40,25 @@ it('shows an entry with its hash', function () {
         ->assertSee($log->hash);
 });
 
+it('logs who opens an entry, unless disabled', function () {
+    $log = LgpdAuditLog::record('exported', $this->subject);
+
+    Livewire::test(ViewAuditLog::class, ['record' => $log->getKey()]);
+
+    $view = AuditLog::query()->latest('id')->first();
+    expect($view)
+        ->action->toBe('viewed')
+        ->purpose->toBe('Audit log review')
+        ->subject->is($log)->toBeTrue()
+        ->actor->is($this->admin)->toBeTrue()
+        ->and(LgpdAuditLog::verify())->toBeNull();
+
+    LgpdAuditLogPlugin::get()->logViews(false);
+    Livewire::test(ViewAuditLog::class, ['record' => $log->getKey()]);
+
+    expect(AuditLog::count())->toBe(2);
+});
+
 it('verifies the chain from the panel', function () {
     foreach (range(1, 3) as $i) {
         LgpdAuditLog::record('viewed', $this->subject);
