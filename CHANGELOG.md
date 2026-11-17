@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## 1.2.0 - 2026-11-16
+
+- Reading the log is audited too (purpose `Audit log review`): opening the list adds a `viewed` entry, and Verify chain adds a `verified` entry with the result (`intact`, `broken_at`)
+- Opening an entry was already logged since 1.1.0 / 2.1.0 / 3.1.0; `->logViews(false)` turns all of it off
+- New `verified` action label in the 19 languages
+
 ## 1.1.0 - 2026-11-16
 
 - Opening an audit entry in the panel is logged too (`viewed`, subject = the entry, purpose `Audit log review`); turn it off with `->logViews(false)`
