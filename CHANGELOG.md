@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file.
 
+## 3.3.0 - 2026-11-18
+
+### Changed
+
+- Requires the 2.0 of its Laravel package, which runs on [laravel-privacy](https://github.com/jeffersongoncalves/laravel-privacy), the engine shared by the privacy suites. Same pages, settings and tables: nothing to change in your panel.
+
 ## 3.2.0 - 2026-11-16
 
 - Reading the log is audited too (purpose `Audit log review`): opening the list adds a `viewed` entry, and Verify chain adds a `verified` entry with the result (`intact`, `broken_at`)
